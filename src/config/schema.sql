@@ -1,0 +1,22 @@
+CREATE DATABASE products;
+
+\c products
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE  IF NOT EXISTS product ( 
+  id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
+  nome VARCHAR(30) NOT NULL,
+  preco DECIMAL NOT NULL,
+  descricao VARCHAR(40) NOT NULL
+);
+
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE  IF NOT EXISTS userTable ( 
+  id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
+  nome VARCHAR(30) NOT NULL,
+  email VARCHAR(40) NOT NULL UNIQUE,
+  password VARCHAR(70) NOT NULL
+);

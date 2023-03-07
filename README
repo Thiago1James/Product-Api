@@ -1,0 +1,12 @@
+Para iniciar o Docker compose com a imagem do Postgres,
+digite : docker compose up
+
+para Acessar a imagem digite
+docker exec -it product-api-db-1 bash
+
+para acessar com as credenciais : 
+psql -U root 
+para acessar os dados de Forma interativa no http://localhost:8080/ será aberto o pg Admin
+
+
+para rodar o Projeto Npm run dev 
