@@ -44,12 +44,11 @@ class ProductRepository {
     }
   }
   async findByName(nome: string): Promise<IProduct[] | unknown> {
-    console.log(nome);
     try {
       const row = await Query(
         `SELECT * 
       FROM product
-      WHERE nome::text 
+      WHERE LOWER(nome)
       LIKE $1
       `,
         [`%${nome}%`]
@@ -59,7 +58,6 @@ class ProductRepository {
           FROM product
           `
       );
-      console.log(row);
 
       return {
         row,
@@ -76,9 +74,7 @@ class ProductRepository {
     descricao,
     preco,
   }: IProduct): Promise<IProduct | unknown> {
-    console.log(nome);
-    console.log(descricao);
-    console.log(preco);
+  
 
     try {
       const [row] = await Query(
@@ -103,7 +99,6 @@ class ProductRepository {
         `,
         [product.nome, product.descricao, product.preco, id]
       );
-      console.log(row);
       return row;
     } catch (error) {
       return error;

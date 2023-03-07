@@ -46,7 +46,6 @@ class ProductController {
     try {
       const { nome } = req.params;
       const response = await ProductRepository.findByName(nome);
-      console.log(response)
 
       if (!Boolean(response)) {
         return res.status(404).send(`Product  with ID  ${nome} not found`);

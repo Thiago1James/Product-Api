@@ -31,7 +31,6 @@ class UserController {
   async login(req: Request, res: Response) {
     try {
       const User: IUser = req.body;
-      console.log(User)
       res.status(200).send({
         user: {
           nome: User.nome,

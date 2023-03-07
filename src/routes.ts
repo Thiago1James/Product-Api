@@ -9,7 +9,7 @@ const routes = Router();
 routes.get("/products", ProductController.index);
 routes.post("/products", isAuthenticated, ProductController.show);
 routes.put("/products/:id", ProductController.update);
-routes.get("/products/:nome", isAuthenticated, ProductController.store);
+routes.get("/products/:nome", ProductController.store);
 routes.delete(
   "/products/:id",
   isAuthenticated,
